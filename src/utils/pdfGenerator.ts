@@ -292,13 +292,13 @@ export const generateWillPDF = (willData: Partial<WillData>): void => {
 	// ===== ISLAMIC NOTE =====
 	checkNewPage(30);
 	yPosition += 5;
-	
+
 	doc.setFontSize(10);
 	doc.setTextColor(0, 0, 0);
 	doc.setFont("helvetica", "bold");
 	doc.text("Note islamique :", margin, yPosition);
 	yPosition += 6;
-	
+
 	doc.setFontSize(9);
 	doc.setFont("helvetica", "italic");
 	addText(
