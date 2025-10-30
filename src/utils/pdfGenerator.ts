@@ -49,26 +49,27 @@ export const generateWillPDF = (willData: Partial<WillData>): void => {
 	const addSection = (title: string) => {
 		checkNewPage(25);
 		yPosition += 6;
-		doc.setFillColor(220, 38, 38); // Primary red color
-		doc.rect(margin, yPosition - 5, contentWidth, 8, "F");
-		doc.setTextColor(255, 255, 255);
+		doc.setDrawColor(0, 0, 0);
+		doc.setLineWidth(0.5);
+		doc.line(margin, yPosition - 2, pageWidth - margin, yPosition - 2);
+		doc.setTextColor(0, 0, 0);
 		doc.setFontSize(12);
 		doc.setFont("helvetica", "bold");
-		doc.text(title, margin + 3, yPosition);
+		doc.text(title, margin, yPosition + 3);
 		yPosition += 10;
-		doc.setTextColor(0, 0, 0);
 	};
 
 	// ===== DOCUMENT HEADER =====
-	doc.setFillColor(220, 38, 38);
-	doc.rect(0, 0, pageWidth, 40, "F");
+	doc.setDrawColor(0, 0, 0);
+	doc.setLineWidth(1);
+	doc.rect(margin, 10, contentWidth, 30);
 
-	doc.setTextColor(255, 255, 255);
+	doc.setTextColor(0, 0, 0);
 	doc.setFontSize(22);
 	doc.setFont("helvetica", "bold");
-	doc.text("TESTAMENT ISLAMIQUE", pageWidth / 2, 18, { align: "center" });
+	doc.text("TESTAMENT ISLAMIQUE", pageWidth / 2, 23, { align: "center" });
 	doc.setFontSize(14);
-	doc.text("(WASSIYA)", pageWidth / 2, 28, { align: "center" });
+	doc.text("(WASSIYA)", pageWidth / 2, 33, { align: "center" });
 
 	yPosition = 50;
 
@@ -84,7 +85,7 @@ export const generateWillPDF = (willData: Partial<WillData>): void => {
 				month: "long",
 				year: "numeric",
 		  });
-	doc.setTextColor(100, 100, 100);
+	doc.setTextColor(0, 0, 0);
 	doc.setFontSize(10);
 	doc.text(`Document créé le ${dateCreated}`, pageWidth - margin, yPosition, { align: "right" });
 	yPosition += 15;
@@ -290,26 +291,25 @@ export const generateWillPDF = (willData: Partial<WillData>): void => {
 
 	// ===== ISLAMIC NOTE =====
 	checkNewPage(30);
-	doc.setFillColor(250, 250, 250);
-	const noteHeight = 25;
-	doc.rect(margin, yPosition - 3, contentWidth, noteHeight, "F");
-	doc.setDrawColor(220, 38, 38);
-	doc.setLineWidth(0.5);
-	doc.rect(margin, yPosition - 3, contentWidth, noteHeight);
-
+	yPosition += 5;
+	
+	doc.setFontSize(10);
+	doc.setTextColor(0, 0, 0);
+	doc.setFont("helvetica", "bold");
+	doc.text("Note islamique :", margin, yPosition);
+	yPosition += 6;
+	
 	doc.setFontSize(9);
-	doc.setTextColor(60, 60, 60);
 	doc.setFont("helvetica", "italic");
-	yPosition += 3;
 	addText(
-		"Note islamique : Ce testament (wassiya) doit respecter les limites imposées par la Charia. Les legs testamentaires (wassiya) ne peuvent excéder un tiers (1/3) de la succession après règlement des dettes. Les héritiers légaux conservent leurs parts prescrites par le Coran.",
-		8
+		"Ce testament (wassiya) doit respecter les limites imposées par la Charia. Les legs testamentaires (wassiya) ne peuvent excéder un tiers (1/3) de la succession après règlement des dettes. Les héritiers légaux conservent leurs parts prescrites par le Coran.",
+		9
 	);
 
 	// ===== FOOTER =====
 	const footerY = pageHeight - 15;
 	doc.setFontSize(8);
-	doc.setTextColor(100, 100, 100);
+	doc.setTextColor(0, 0, 0);
 	doc.setFont("helvetica", "normal");
 	doc.text(
 		"Document généré par Wassiya.fr - Testament Islamique en ligne",
