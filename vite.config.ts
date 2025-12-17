@@ -6,6 +6,6 @@ export default defineConfig({
 	preview: {
 		host: "0.0.0.0",
 		port: 4173,
-		allowedHosts: ["wassiya.rechidiahmed.me", "localhost", "127.0.0.1"],
+		allowedHosts: ["wassiya.fr", "www.wassiya.fr"],
 	},
 });

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Wassiya - BookOpen</title>
+  <g fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left page outline -->
+    <path d="M12 18 Q22 14 32 18 M12 50 Q22 46 32 50 M12 18 L12 50"/>
+    <!-- Right page outline -->
+    <path d="M52 18 Q42 14 32 18 M52 50 Q42 46 32 50 M52 18 L52 50"/>
+    <!-- Center spine -->
+    <path d="M32 18 L32 50"/>
+  </g>
+</svg>
